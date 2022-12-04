@@ -1,0 +1,24 @@
+{
+  "name": "taxiworker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iTzTorero/TaxiWorker.git"
+  },
+  "author": "iTzTorero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iTzTorero/TaxiWorker/issues"
+  },
+  "homepage": "https://github.com/iTzTorero/TaxiWorker#readme",
+  "dependencies": {
+    "nodejs": "^0.0.0",
+    "vite": "^3.2.4",
+    "vue": "^3.2.45"
+  }
+}
