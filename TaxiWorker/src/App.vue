@@ -1,19 +1,51 @@
-<script setup>
+<script>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+import Modal from "./components/Modal.vue";
+
+export default {
+  name: "App",
+  components: {
+    Modal,
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      var form = document.getElementById("taxiNumeroForm");
+      form.reset();
+      this.isModalVisible = false;
+    },
+  },
+};
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <form id="taxiNumeroForm" @submit="showModal" onsubmit="return false;">
+    <h1>Taxi Worker</h1>
+    <p>Ingrese el number de telefono</p>
+    <input
+      required
+      type="tel"
+      id="phoneInput"
+      name="phoneInput"
+      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+    />
+    <br />
+
+    <div id="app">
+      <!-- <button type="submit" class="btn" @>Enviar</button> -->
+      <input type="submit" value="Enviar" />
+      <Modal v-show="isModalVisible" @close="closeModal" />
+    </div>
+  </form>
 </template>
 
 <style scoped>
