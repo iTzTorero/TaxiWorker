@@ -36,14 +36,14 @@ export default {
       type="tel"
       id="phoneInput"
       name="phoneInput"
-      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+      pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
     />
     <br />
 
     <div id="app">
       <!-- <button type="submit" class="btn" @>Enviar</button> -->
       <input type="submit" value="Enviar" />
-      <Modal v-show="isModalVisible" @close="closeModal" />
+      <Modal v-show="isModalVisible" @close="closeModal" numero="123132123"> </Modal>
     </div>
   </form>
 </template>

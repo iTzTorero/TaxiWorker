@@ -1,6 +1,9 @@
 <script>
 export default {
   name: "Modal",
+  props:{
+    numero: {required: true, type: String}
+  },
   methods: {
     close() {
       this.$emit("close");
@@ -19,7 +22,7 @@ export default {
         aria-describedby="modalDescription"
       >
         <header class="modal-header" id="modalTitle">
-          <slot name="header"> Numero de telefono: x </slot>
+          <slot name="header"> Numero de telefono: {{numero}} </slot>
           <button
             type="button"
             class="btn-close"
