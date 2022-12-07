@@ -15,16 +15,20 @@ export default {
     };
   },
   methods: {
-    getNombre(){
-      return this.nombre
+    getNombre() {
+      return this.nombre;
     },
     showModal() {
       this.isModalVisible = true;
     },
     closeModal() {
-      var form = document.getElementById("taxiNumeroForm");
+      let form = document.getElementById("taxiNumeroForm");
       form.reset();
       this.isModalVisible = false;
+    },
+    getNumeroTelefono() {
+      let numTelefono = document.getElementById("phoneInput").value();
+      return numTelefono;
     },
   },
 };
@@ -39,15 +43,18 @@ export default {
       v-model="numero"
       type="tel"
       id="phoneInput"
-      name="phoneInput"
       pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
     />
     <br />
 
     <div id="app">
-      <!-- <button type="submit" class="btn" @>Enviar</button> -->
       <input type="submit" value="Enviar" />
-      <Modal v-show="isModalVisible" @close="closeModal" numero="6871748530"> </Modal>
+      <Modal
+        v-show="isModalVisible"
+        @close="closeModal"
+        :numero="getNumeroTelefono"
+      >
+      </Modal>
     </div>
   </form>
 </template>
