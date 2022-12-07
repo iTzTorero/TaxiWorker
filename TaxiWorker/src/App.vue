@@ -15,6 +15,9 @@ export default {
     };
   },
   methods: {
+    getNombre(){
+      return this.nombre
+    },
     showModal() {
       this.isModalVisible = true;
     },
@@ -33,6 +36,7 @@ export default {
     <p>Ingrese el number de telefono</p>
     <input
       required
+      v-model="numero"
       type="tel"
       id="phoneInput"
       name="phoneInput"
@@ -43,7 +47,7 @@ export default {
     <div id="app">
       <!-- <button type="submit" class="btn" @>Enviar</button> -->
       <input type="submit" value="Enviar" />
-      <Modal v-show="isModalVisible" @close="closeModal" numero="123132123"> </Modal>
+      <Modal v-show="isModalVisible" @close="closeModal" numero="6871748530"> </Modal>
     </div>
   </form>
 </template>

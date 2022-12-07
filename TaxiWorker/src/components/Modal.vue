@@ -1,13 +1,26 @@
 <script>
 export default {
   name: "Modal",
+  data: {
+    calle: "",
+    numero: "",
+    colonia: "",
+    referencia: ""
+  },
   props:{
-    numero: {required: true, type: String}
+    numero: {required: true, type: String},
+  },
+  mounted(){
+    const numero = document.getElementById("num").innerHTML
+    console.log('Imprimi el numero en el modelo ' + numero);
   },
   methods: {
     close() {
       this.$emit("close");
     },
+    addDireccion(calle, numero, colonia, referencia){
+      console.log('Intente Agregar una direccion'+ calle+ numero+colonia+referencia);
+    }
   },
 };
 </script>
@@ -23,6 +36,7 @@ export default {
       >
         <header class="modal-header" id="modalTitle">
           <slot name="header"> Numero de telefono: {{numero}} </slot>
+          <p hidden id="num">{{numero}}</p>
           <button
             type="button"
             class="btn-close"
@@ -52,7 +66,12 @@ export default {
             </table>
           </slot>
         </section>
-
+        <form @submit.prevent="addDireccion">
+             <input v-model="calle" type="text" placeholder="Ingresa la calle">
+            <input v-model="numero" type="text" placeholder="Ingresa el numero">
+            <input v-model="colonia" type="text" placeholder="Ingresa la colonia">
+            <input v-model="referencia" type="text" placeholder="Ingresa la referencia">
+          </form>
         <footer class="modal-footer">
           <slot name="footer"> This is the default footer! </slot>
           <button
